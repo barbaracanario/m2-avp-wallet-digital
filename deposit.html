@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despósito Wallet</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+   
+
+</head>
+
+<body>
+    <!-- INICIO DEL NAV -->
+    <nav class="navbar navbar-light bg-white border-bottom shadow-sm fixed-top">
+        <div class="container">
+
+
+            <!-- LOGO NAV -->
+            <a class="navbar-brand fw-bold" href="menu.html">
+                <i class="fa-solid fa-wallet mr-1"></i>Wallet
+            </a>
+
+
+            <!-- FIN DEL LOGO -->
+
+            <!-- INICIO BOTONES DE MENÚ-->
+
+            <a class="volver-menu btn btn-link" href="menu.html"><i class="fa-solid fa-arrow-left mr-1"></i>
+                Volver al menú </a>
+
+
+            <!-- FIN DE BOTONES DE MENÚ -->
+        </div>
+    </nav>
+
+    <!-- FIN DEL NAV -->
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <section class="menu p-4 mt-4">
+
+
+                    <h2 class="text-center mb-4">Depositar</h2>
+
+                    <p class="mb-3">Transferir desde:</p>
+
+                    <div class="cuenta">
+
+
+                        <div class="visa mb-4 p-3 text-left">
+
+                            <div class="small text-muted">Cuenta Wallet</div>
+                            <div class="small text-muted">**** **** **** 1234</div>
+
+                        </div>
+
+                    </div>
+
+                    <form id="deposit">
+                        <div class="form-group">
+                            <label for="montoDeposit" class="form-label">Ingrese el monto:</label>
+                            <input id="montoDeposit" type="number" name="monto" class="form-control entrada" placeholder="$0"
+                            step="500" min="500">
+                        </div>
+
+                        <h3 class="text-deposit text-muted mb-4">Monto disponible: $ <span id="monto-saldo"></span></h3>
+
+                       <button type="submit" class="boton btn btn-primary btn-block">Continuar</button>
+
+                    </form>
+                    
+                </section>
+            </div>
+        </div>
+    </div>
+ <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script defer src="./assets/js/deposit.js"></script>
+</body>
+
+</html>
