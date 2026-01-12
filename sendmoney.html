@@ -64,7 +64,8 @@
 
                         <div class="text-center">
                             <button type="button" class="boton btn btn-primary mr-3 mb-2">Favoritos</button>
-                            <button type="button" class="boton btn btn-primary">Crear nuevo contacto</button>
+                            <button type="button" class="boton btn btn-primary" data-toggle="modal"
+                                data-target="#modalAgregarContacto">Crear nuevo contacto</button>
                         </div>
                     </form>
 
@@ -81,10 +82,57 @@
                         <a href="menu.html" class="btn btn-outline-secondary boton mr-2 mb-2">Cancelar</a>
                         <a href="transactions.html" class="btn boton btn-primary">Confirmar Monto</a>
                     </div>
+                </section>
             </div>
-            </section>
+
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalAgregarContacto" tabindex="-1" aria-labelledby="modalAgregarContactoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAgregarContactoLabel">Agregar Nuevo Contacto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAddContacto">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellido" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cbu" class="form-label">CBU:</label>
+                            <input type="number" class="form-control" id="cbu" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="alias" class="form-label">Alias:</label>
+                            <input type="text" class="form-control" id="alias" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="banco" class="form-label">Nombre Banco:</label>
+                            <input type="text" class="form-control" id="banco" required>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-success">Agregar contacto</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

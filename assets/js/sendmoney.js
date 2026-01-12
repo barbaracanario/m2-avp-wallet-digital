@@ -58,6 +58,34 @@ function agregarContactosDom(ListaContactos){
 
 // INCIO FUNCIÓN AGREGAR NUEVOS CONTACTOS.
 
+$("#formAddContacto").on("submit", function(event){
+    event.preventDefault();
+
+    let nombre = $("#nombre").val();
+    let apellido = $("#apellido").val();
+    let cbu = $("#cbu").val();
+    let alias = $("#alias").val();
+    let banco = $("#banco").val();
+
+    let nuevoContacto = {
+    nombre,
+    apellido,
+    cbu,
+    alias,
+    nombreBanco: banco,
+
+}
+
+    contactos.push(nuevoContacto);
+
+    alert(`Su nuevo contacto ${nombre} ${apellido}, ha sido agregado.`);
+    
+    agregarContactosDom(contactos);
+
+    $("#modalAgregarContacto").modal('hide');
+
+})
+
 // FIN FUNCIÓN AGREGAR NUEVOS CONTACTOS.
 
 
