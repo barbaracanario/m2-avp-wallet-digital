@@ -19,7 +19,7 @@ let contacto2 = {
     nombre: "Soledad",
     apellido: "Lorca",
     cbu: "987654321",
-    alias:"Hermana",
+    alias: "Hermana",
     nombreBanco: "Banco Estado",
 }
 
@@ -31,12 +31,12 @@ let contacto3 = {
     nombreBanco: "Banco de Chile",
 }
 
-let contactos = [contacto1, contacto2, contacto3]; 
+let contactos = [contacto1, contacto2, contacto3];
 // LOS CONTACTO FUNCIONAN CONTANDO DESDE EL 0, EJ: CONTACTO1: 0 CONTACTO2: 1
 
-function crearInfoContacto(contacto){
+function crearInfoContacto(contacto) {
 
-      let {nombre, apellido, cbu, alias, nombreBanco} = contacto;
+    let { nombre, apellido, cbu, alias, nombreBanco } = contacto;
 
     let infoContacto = `  <li class="list-group-item">
                             <div class="contact-info">
@@ -51,23 +51,23 @@ function crearInfoContacto(contacto){
 
 }
 
-function agregarContactosDom(ListaContactos){
+function agregarContactosDom(ListaContactos) {
 
-    let elementosLista= "";
-    ListaContactos.forEach(contacto =>{
+    let elementosLista = "";
+    ListaContactos.forEach(contacto => {
 
         elementosLista += crearInfoContacto(contacto);
     });
     // document.getElementById("contactList").innerHTML = elementosLista;
 
     $("#contactList").html(elementosLista);
-    
+
 }
 
 
 // INCIO FUNCIÓN AGREGAR NUEVOS CONTACTOS.
 
-$("#formAddContacto").on("submit", function(event){
+$("#formAddContacto").on("submit", function (event) {
     event.preventDefault();
 
     let nombre = $("#nombre").val();
@@ -77,18 +77,18 @@ $("#formAddContacto").on("submit", function(event){
     let banco = $("#banco").val();
 
     let nuevoContacto = {
-    nombre,
-    apellido,
-    cbu,
-    alias,
-    nombreBanco: banco,
+        nombre,
+        apellido,
+        cbu,
+        alias,
+        nombreBanco: banco,
 
-}
+    }
 
     contactos.push(nuevoContacto);
 
     alert(`Su nuevo contacto ${nombre} ${apellido}, ha sido agregado.`);
-    
+
     agregarContactosDom(contactos);
 
     $("#modalAgregarContacto").modal('hide');
@@ -99,7 +99,7 @@ $("#formAddContacto").on("submit", function(event){
 
 // INICIO EVENTO BUSCAR CONTACTOS.
 
-$("#buscador").on("input", function(event){
+$("#buscador").on("input", function (event) {
 
     let textoBusqueda = $(this).val();
 
@@ -111,7 +111,7 @@ $("#buscador").on("input", function(event){
 
     textoBusqueda = textoBusqueda.trim();
 
-    let contactosFiltrados = contactos.filter(function(contacto){
+    let contactosFiltrados = contactos.filter(function (contacto) {
 
         let nombre = contacto.nombre.toLowerCase();
         let apellido = contacto.apellido.toLowerCase();
@@ -123,7 +123,7 @@ $("#buscador").on("input", function(event){
         let reglaApellido = apellido.includes(textoBusqueda);
         let reglaAlias = alias.includes(textoBusqueda);
 
-        if(reglaNombre || reglaApellido || reglaAlias){
+        if (reglaNombre || reglaApellido || reglaAlias) {
             return contacto;
 
         }
@@ -140,9 +140,52 @@ $("#buscador").on("input", function(event){
 // FIN EVENTO BUSCAR CONTACTOS.
 
 
-function main(){
-     
-   agregarContactosDom(contactos);
+// INICIO LOGICA FORM ENVIAR DINERO
+
+function crearInfoSelect(contacto) {
+
+    if(!contacto){
+        return "";
+    }
+
+    let { nombre, apellido, cbu, alias, nombreBanco } = contacto;
+
+    let infoContacto = `<option value="${cbu}"> ${alias} - ${cbu} - ${nombreBanco} </option>`;
+
+    return infoContacto;
+
 }
 
-main ();
+function agregarContactosSelect(ListaContactos) {
+
+    let elementosSelect = "";
+    ListaContactos.forEach(contacto => {
+
+        elementosSelect += crearInfoSelect(contacto);
+    });
+    // document.getElementById("contactList").innerHTML = elementosLista;
+
+    $("#enviarContacto").html(elementosSelect);
+
+}
+
+const formEnviarDinero = $("#formEnviarDinero");
+
+formEnviarDinero.on("submit", function (event) {
+    event.preventDefault();
+
+    let monto = $("#enviarMonto").val();
+    let cbuDestino = $("#enviarContacto").val();
+
+    alert(`Se ha enviado el valor de ${monto}. \nCBU n°: ${cbuDestino} correctamente`);
+})
+
+// FIN LOGICA ENVIAR DINERO
+
+function main() {
+
+    agregarContactosDom(contactos);
+    agregarContactosSelect(contactos);
+}
+
+main();
