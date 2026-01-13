@@ -1,3 +1,12 @@
+//vemos si existe login activo en el local store
+let login = localStorage.getItem("login");
+
+if (!login) {
+
+    alert("Usted no tiene los permisos para estar en esta página");
+    location.href = "index.html"
+}
+
 let contacto1 = {
     nombre: "Bárbara",
     apellido: "Canario",
@@ -8,7 +17,7 @@ let contacto1 = {
 
 let contacto2 = {
     nombre: "Soledad",
-    apellido: "lorca",
+    apellido: "Lorca",
     cbu: "987654321",
     alias:"Hermana",
     nombreBanco: "Banco Estado",
@@ -87,6 +96,48 @@ $("#formAddContacto").on("submit", function(event){
 })
 
 // FIN FUNCIÓN AGREGAR NUEVOS CONTACTOS.
+
+// INICIO EVENTO BUSCAR CONTACTOS.
+
+$("#buscador").on("input", function(event){
+
+    let textoBusqueda = $(this).val();
+
+    // CONVERTIR A MINUSCULA Y QUITAR ESPACIOS
+
+    textoBusqueda = textoBusqueda.toLowerCase();
+
+    // AHORA LE QUITAMOS CUALQUIER ESPACIO ADICIONAL
+
+    textoBusqueda = textoBusqueda.trim();
+
+    let contactosFiltrados = contactos.filter(function(contacto){
+
+        let nombre = contacto.nombre.toLowerCase();
+        let apellido = contacto.apellido.toLowerCase();
+        let alias = contacto.alias.toLowerCase();
+
+        // CONJUNTO DE REGLAS DE FILTRADO
+
+        let reglaNombre = nombre.includes(textoBusqueda);
+        let reglaApellido = apellido.includes(textoBusqueda);
+        let reglaAlias = alias.includes(textoBusqueda);
+
+        if(reglaNombre || reglaApellido || reglaAlias){
+            return contacto;
+
+        }
+
+
+    });
+
+    agregarContactosDom(contactosFiltrados);
+
+});
+
+
+
+// FIN EVENTO BUSCAR CONTACTOS.
 
 
 function main(){
