@@ -20,6 +20,8 @@
 
     <script defer src="./assets/js/sendmoney.js"></script>
 
+    <script src="./assets/js/global.js"></script>
+
 
 </head>
 
@@ -54,7 +56,7 @@
 
                 <section class="menu p-4 mt-4">
                     <h2 class="text-center mb-4">Enviar dinero</h2>
-
+                    <p class="font-weight-bold">Saldo cuenta: <span class="outputSaldo"></span></p>
                     <form class="mb-4">
                         <div class="form-group">
                             <label for="buscador" class="form-label">Buscar contactos:</label>
@@ -152,6 +154,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <p class="font-weight-bold">Saldo cuenta: <span class="outputSaldo"></span></p>
                     <form id="formEnviarDinero">
                         <div class="mb-3">
                             <label for="send-contacto" class="form-label">Seleccionar contacto</label>
@@ -162,7 +165,8 @@
                         </div>
                         <div>
                             <label for="enviarMonto" class="form-label">Monto: </label>
-                            <input type="number" class="form-control" min="500" value="500" id="enviarMonto" name="enviarMonto" step="500">
+                            <input type="number" class="form-control" min="500" value="500" id="enviarMonto"
+                                name="enviarMonto" step="500">
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Enviar</button>

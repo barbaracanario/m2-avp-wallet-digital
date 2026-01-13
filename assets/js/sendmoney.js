@@ -186,6 +186,8 @@ function main() {
 
     agregarContactosDom(contactos);
     agregarContactosSelect(contactos);
+
+    $(".outputSaldo").text(saldo);
 }
 
 main();

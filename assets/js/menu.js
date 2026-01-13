@@ -49,7 +49,6 @@ linkTransacction.addEventListener("click", function (event) {
 });
 
 // AGREGAMOS UN SALDO INICIAL
-let saldo = Number(localStorage.getItem("saldo")) || 15_000;
 
 let montoSaldo = document.getElementById("monto-saldo");
 
