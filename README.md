@@ -1,4 +1,4 @@
-# proyecto AVP Módulo 2
+# proyecto ABP Módulo 2
 
 **Autor**: Bárbara Canario
 
