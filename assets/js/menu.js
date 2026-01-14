@@ -1,3 +1,7 @@
+const montoSaldo = document.getElementById("monto-saldo");
+
+montoSaldo.textContent = saldo
+
 //vemos si existe login activo en el local store
 let login = localStorage.getItem("login");
 
@@ -49,7 +53,10 @@ linkTransacction.addEventListener("click", function (event) {
 });
 
 // AGREGAMOS UN SALDO INICIAL
+let saldo = Number(localStorage.getItem("saldo")) || 15_000;
 
 let montoSaldo = document.getElementById("monto-saldo");
 
 montoSaldo.innerText = saldo;
+
+// OCURRIÓ UN PROBLEMA CON EL SALDO DISPONIBLE: EL CUAL NO APARECE EN MENÚ, INTENTÉ ARREGLARLO Y LE PREGUNTÉ A LA IA, PERO NO SUPE SOLUCIONARLO PREGUNTARÉ CUANDO PUEDA EN LA CLASE.
